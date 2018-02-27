@@ -1,0 +1,27 @@
+---
+- name: Add apt key for Golang ppa
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 52B59B1571A79DBC054901C0F6BC817356A3D45E
+    state: present
+
+- name: Add apt repository for Golang
+  apt_repository:
+    repo: "ppa:longsleep/golang-backports"
+
+- name: Install Golang
+  apt:
+    name: golang-go
+    state: present
+
+- name: Set GOPATH
+  lineinfile:
+    dest: /etc/environment
+    line: "GOPATH={{ gopath }}"
+    state: present
+
+- name: Set GOPATH in PATH
+  lineinfile:
+    dest: /etc/environment
+    line: "GOPATH={{ gopath }}"
+    state: present

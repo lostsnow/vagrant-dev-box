@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: true
+  vars:
+    timezone: Asia/Shanghai
+    document_root: /opt/projects
+    www_user: www
+    www_group: www
+    mysql_user: mysql
+    mysql_group: mysql
+    gopath: "/opt/golang"
+  pre_tasks:
+    - name: update apt cache
+      apt: update_cache=yes cache_valid_time=3600
+  roles:
+    - base
+    - nginx
+    - mysql
+    - php
+    - golang
