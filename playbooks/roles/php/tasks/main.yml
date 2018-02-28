@@ -8,6 +8,7 @@
 - name: Add apt repository for PHP
   apt_repository:
     repo: "ppa:ondrej/php/ubuntu"
+    state: present
 
 - name: Install PHP
   apt:
@@ -40,9 +41,11 @@
 
 - name: Install composer
   shell: curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/bin --filename=composer
+  state: present
 
 - name: Configure composer cache directory to avoid using slow NFS
   shell: composer config --global cache-dir /dev/shm/composer/cache
+  state: present
 
 - name: Download and install PHPUnit
   get_url:

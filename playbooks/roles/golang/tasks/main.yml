@@ -8,6 +8,7 @@
 - name: Add apt repository for Golang
   apt_repository:
     repo: "ppa:longsleep/golang-backports"
+    state: present
 
 - name: Install Golang
   apt:
