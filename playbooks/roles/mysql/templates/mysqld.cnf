@@ -1,0 +1,67 @@
+[mysql]
+
+# CLIENT #
+port                           = 3306
+socket                         = /var/run/mysqld/mysqld.sock
+
+[mysqld]
+
+# GENERAL #
+user                           = mysql
+default-storage-engine         = InnoDB
+socket                         = /var/run/mysqld/mysqld.sock
+pid-file                       = /var/run/mysqld/mysqld.pid
+bind-address                   = 127.0.0.1
+sql-mode                       = ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+
+character-set-server           = utf8
+character-set-filesystem       = utf8
+skip-external-locking
+explicit-defaults-for-timestamp
+
+# MyISAM #
+key-buffer-size                = 16M
+
+# SAFETY #
+max-allowed-packet             = 16M
+max-connect-errors             = 1000000
+skip-name-resolve
+validate-password-policy       = LOW
+
+# DATA STORAGE #
+datadir                        = /var/lib/mysql/
+
+# BINARY LOGGING #
+server-id                      = 10001
+log-bin                        = /var/lib/mysql/mysql-bin.log
+expire-logs-days               = 10
+sync-binlog                    = 1
+binlog-format                  = ROW
+expire-logs-days               = 10
+
+# CACHES AND LIMITS #
+tmp-table-size                 = 32M
+max-heap-table-size            = 32M
+query-cache-type               = 0
+query-cache-size               = 0
+max-connections                = 500
+thread-cache-size              = 50
+open-files-limit               = 65535
+table-definition-cache         = 4096
+table-open-cache               = 4096
+
+# INNODB #
+innodb-flush-method            = O_DIRECT
+innodb-log-files-in-group      = 2
+innodb-log-file-size           = 128M
+innodb-flush-log-at-trx-commit = 1
+innodb-file-per-table          = 1
+transaction-isolation          = READ-COMMITTED
+#innodb-buffer-pool-size        = 1G
+
+# LOGGING #
+log-error                      = /var/log/mysql/error.log
+#log-queries-not-using-indexes  = 1
+slow-query-log                 = 1
+long-query-time                = 1
+slow-query-log-file            = /var/log/mysql/slow.log

@@ -3,3 +3,27 @@
   apt:
     name: mysql-server
     state: present
+
+- name: Copy mysql config
+  template:
+    src: mysqld.cnf
+    dest: /etc/mysql/mysql.conf.d/mysqld.cnf
+  notify:
+    - restart mysql
+
+- name: Install MySQL required packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python-mysqldb
+
+- name: Update mysql root password for all root accounts
+  mysql_user:
+    name: root
+    host: "{{ item }}"
+    password: "{{ mysql_root_password }}"
+  with_items:
+    - 127.0.0.1
+    - ::1
+    - localhost
