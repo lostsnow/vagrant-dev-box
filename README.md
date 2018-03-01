@@ -1,6 +1,14 @@
 Vagrant develop box
 ===================
 
+Feature
+-------
+
+* Nginx
+* MySQL 5.7
+* PHP 7.2
+* Golang
+
 Requirements
 ------------
 
@@ -14,6 +22,8 @@ Build
 vagrant up
 vagrant ssh
 ```
+
+> Change default config in [vagrant.yml][3] 
 
 ### Clean
 
@@ -39,7 +49,7 @@ Publish
 Run
 ----
 
-copy [Vagrantfile][3] and change some config
+Use [Vagrantfile][4] and change some config
 
 ```shell
 vagrant up
@@ -48,4 +58,5 @@ vagrant ssh
 
 [1]: https://www.virtualbox.org/wiki/Downloads
 [2]: http://www.vagrantup.com/downloads
-[3]: https://github.com/lostsnow/vagrant-dev-box/blob/master/build/Vagrantfile
+[3]: https://github.com/lostsnow/vagrant-dev-box/blob/master/playbooks/vagrant.yml
+[4]: https://github.com/lostsnow/vagrant-dev-box/blob/master/build/Vagrantfile
