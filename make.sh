@@ -112,7 +112,7 @@ json_val() {
     echo ${temp##*|}
 }
 
-# Checks for an Atlas API Error
+# Checks for an Vagrant cloud API Error
 check_error() {
     if  [[ $1 == '{"errors":'* ]] ;
     then
@@ -157,7 +157,7 @@ run() {
 
     if [ ${CMD} == "create" ] || [ ${CMD} == "upload" ] || [ ${CMD} == "release" ]; then
         if [ -z "${TOKEN}" ]; then
-            fatal "Atlas token required, Please set by environment variable: TOKEN."
+            fatal "Vagrant cloud token required, Please set by environment variable: TOKEN."
         fi
 
         if [ -z "${BOX_VERSION}" ]; then

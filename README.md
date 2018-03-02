@@ -41,6 +41,8 @@ Publish
 -------
 
 ```shell
+# package box
+./make.sh package
 # create box version and provider
 ./make.sh create -v 0.2.0
 # upload box file
