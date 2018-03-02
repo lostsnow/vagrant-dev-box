@@ -1,0 +1,35 @@
+---
+- name: Add NodeJS repository and install its signing key
+  shell: curl -sL https://deb.nodesource.com/setup_9.x | bash -
+  args:
+    creates: /etc/apt/sources.list.d/nodesource.list
+
+- name: Install NodeJS
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - nodejs
+
+- name: Add apt key for yarn
+  apt_key:
+    id: 1646B01B86E50310
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+    state: present
+
+- name: Add apt repository yarn
+  apt_repository:
+    repo: "{{ item.type }} {{ item.url }} {{ item.component }}"
+    state: present
+    update_cache: true
+  with_items:
+    - type: deb
+      url: "https://dl.yarnpkg.com/debian/ stable"
+      component: main
+
+- name: Install yarn
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - yarn

@@ -9,6 +9,7 @@ Feature
 * PHP 7.2
 * Golang
 * Redis
+* NodeJS 9.x with yarn
 
 Requirements
 ------------
