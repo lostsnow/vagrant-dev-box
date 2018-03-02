@@ -12,8 +12,8 @@ Feature
 Requirements
 ------------
 
-* Install [VirtualBox][1]
-* Install [Vagrant][2]
+* Install [VirtualBox][VirtualBox]
+* Install [Vagrant][Vagrant]
 
 Build
 -----
@@ -23,7 +23,7 @@ vagrant up
 vagrant ssh
 ```
 
-> Change default config in [vagrant.yml][3] 
+> Change default config in [vagrant.yml][vagrant.yml] 
 
 ### Clean
 
@@ -49,14 +49,14 @@ Publish
 Run
 ----
 
-Use [Vagrantfile][4] and change some config
+Use [Vagrantfile][build/Vagrantfile] and change some config
 
 ```shell
 vagrant up
 vagrant ssh
 ```
 
-[1]: https://www.virtualbox.org/wiki/Downloads
-[2]: http://www.vagrantup.com/downloads
-[3]: https://github.com/lostsnow/vagrant-dev-box/blob/master/playbooks/vagrant.yml
-[4]: https://github.com/lostsnow/vagrant-dev-box/blob/master/build/Vagrantfile
+[VirtualBox]: https://www.virtualbox.org/wiki/Downloads
+[Vagrant]: http://www.vagrantup.com/downloads
+[vagrant.yml]: https://github.com/lostsnow/vagrant-dev-box/blob/master/playbooks/vagrant.yml
+[build/Vagrantfile]: https://github.com/lostsnow/vagrant-dev-box/blob/master/build/Vagrantfile
