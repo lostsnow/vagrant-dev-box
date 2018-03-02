@@ -21,6 +21,8 @@
     - mtr-tiny
     - python3
     - python3-pip
+    - python-software-properties
+    - tmux
 
 - name: Adding group {{ www_group }}
   group:
@@ -43,11 +45,6 @@
     name: "{{ mysql_user }}"
     group: "{{ mysql_group }}"
     uid: 502
-
-- name: Install python-software-properties
-  apt:
-    name: python-software-properties
-    state: present
 
 - name: Enable password login
   lineinfile:
