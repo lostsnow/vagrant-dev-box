@@ -19,3 +19,4 @@
     - mysql
     - php
     - golang
+    - redis
