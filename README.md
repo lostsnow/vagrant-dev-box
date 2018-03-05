@@ -10,6 +10,7 @@ Feature
 * Golang
 * Redis
 * NodeJS 9.x with yarn
+* memcached
 
 Requirements
 ------------
