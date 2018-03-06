@@ -12,6 +12,7 @@ Feature
 * NodeJS 9.x with yarn
 * memcached
 * beanstalkd
+* Samba server
 
 Requirements
 ------------
