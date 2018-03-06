@@ -11,6 +11,7 @@ Feature
 * Redis
 * NodeJS 9.x with yarn
 * memcached
+* beanstalkd
 
 Requirements
 ------------
