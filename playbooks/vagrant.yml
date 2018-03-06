@@ -9,7 +9,11 @@
     mysql_user: mysql
     mysql_group: mysql
     mysql_root_password: 123456
-    gopath: "/opt/golang"
+    gopath: "/opt/projects/golang"
+    samba_www_root: "/opt/projects"
+    samba_user: www
+    samba_group: www
+    samba_password: 123456
   pre_tasks:
     - name: update apt cache
       apt: update_cache=yes cache_valid_time=3600
@@ -21,3 +25,4 @@
     - golang
     - redis
     - nodejs
+    - samba

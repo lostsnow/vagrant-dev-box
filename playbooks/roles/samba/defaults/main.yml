@@ -1,0 +1,14 @@
+---
+samba_workgroup: 'WORKGROUP'
+samba_server_string: 'Samba Server %m'
+samba_log_size: 5000
+samba_interfaces: []
+samba_security: 'user'
+samba_passdb_backend: 'tdbsam'
+samba_load_printers: false
+samba_load_homes: false
+
+samba_wins_support: yes
+samba_local_master: yes
+samba_domain_master: yes
+samba_preferred_master: yes
