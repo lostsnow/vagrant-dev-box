@@ -1,0 +1,42 @@
+---
+- name: Import MongoDB public GPG Key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+  state: present
+
+- name: Add MongoDB official APT repository
+  apt_repository:
+    repo: "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu {{ ansible_lsb.codename }}/mongodb-org/{{ mongodb_version }} multiverse"
+    state: present
+    filename: mongodb-org-{{ mongodb_version }}
+  update_cache: yes
+
+# By default, MongoDB would not be started and enabled after installation on
+# Ubuntu. So we don't need to stop MongoDB manually, but do need to manually
+# reload systemd daemon to load the MongoDB systemd unit before enable/start it.
+- name: Ensure MongoDB is installed
+  package:
+    name: mongodb-org
+    state: present
+
+- name: Ensure MongoDB is configured
+  template:
+    src: mongod.conf.j2
+    dest: /etc/mongod.conf
+    mode: 0644
+  notify: restart mongodb
+
+- name: Create db path if it does not exist
+  file:
+    path: "{{ mongodb_db_path }}"
+    state: directory
+    owner: mongodb
+    group: mongodb
+    mode: 0755
+
+- name: Ensure MongoDB is running and enabled on boot
+  service:
+    name: mongod
+    state: started
+    enabled: yes

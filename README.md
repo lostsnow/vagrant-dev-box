@@ -13,6 +13,7 @@ Feature
 * memcached
 * beanstalkd
 * Samba server
+* MongoDB
 
 Requirements
 ------------
