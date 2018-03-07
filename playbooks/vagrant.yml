@@ -20,8 +20,11 @@
     mongodb_db_path: /var/lib/mongodb
     mongodb_bind_ip: 127.0.0.1
   pre_tasks:
-    - name: update apt cache
-      apt: update_cache=yes cache_valid_time=3600
+    - name: update apt cache and upgrade apt packages
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+        upgrade: yes
   roles:
     - base
     - nginx
