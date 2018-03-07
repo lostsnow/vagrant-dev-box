@@ -37,6 +37,8 @@ vagrant ssh
 ```shell
 sudo apt autoremove
 sudo apt clean
+sudo apt autoclean
+sudo rm -rf /var/lib/apt/lists/*
 sudo dd if=/dev/zero of=/EMPTY bs=1M
 sudo rm -f /EMPTY
 cat /dev/null > ~/.bash_history && history -c && exit
