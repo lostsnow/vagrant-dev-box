@@ -11,7 +11,7 @@ user                           = mysql
 default-storage-engine         = InnoDB
 socket                         = /var/run/mysqld/mysqld.sock
 pid-file                       = /var/run/mysqld/mysqld.pid
-bind-address                   = 127.0.0.1
+bind-address                   = {{ mysql_bind_ip }}
 sql-mode                       = ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
 
 character-set-server           = utf8
@@ -29,11 +29,11 @@ skip-name-resolve
 #validate-password-policy       = 0
 
 # DATA STORAGE #
-datadir                        = /var/lib/mysql/
+datadir                        = {{ mysql_db_path }}
 
 # BINARY LOGGING #
 server-id                      = 10001
-log-bin                        = /var/lib/mysql/mysql-bin.log
+log-bin                        = {{ mysql_db_path }}/mysql-bin.log
 expire-logs-days               = 10
 sync-binlog                    = 1
 binlog-format                  = ROW

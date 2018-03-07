@@ -6,7 +6,7 @@
 
 - name: Copy mysql config
   template:
-    src: mysqld.cnf
+    src: mysqld.cnf.j2
     dest: /etc/mysql/mysql.conf.d/mysqld.cnf
   notify:
     - restart mysql
