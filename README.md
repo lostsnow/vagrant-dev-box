@@ -10,9 +10,10 @@ Feature
 * MongoDB
 * memcached
 * beanstalkd
-* PHP 7.2
+* PHP 7.2 with composer
 * Golang
 * NodeJS 9.x with yarn
+* Docker with docker-compose
 * Samba server
 
 Requirements

@@ -35,3 +35,4 @@
     - nodejs
     - samba
     - mongodb
+    - docker
