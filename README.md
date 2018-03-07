@@ -6,14 +6,14 @@ Feature
 
 * Nginx
 * MySQL 5.7
-* PHP 7.2
-* Golang
 * Redis
-* NodeJS 9.x with yarn
+* MongoDB
 * memcached
 * beanstalkd
+* PHP 7.2
+* Golang
+* NodeJS 9.x with yarn
 * Samba server
-* MongoDB
 
 Requirements
 ------------
