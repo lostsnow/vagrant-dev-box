@@ -1,8 +1,8 @@
 Vagrant develop box
 ===================
 
-Feature
--------
+Packages
+--------
 
 * Nginx
 * MySQL 5.7
