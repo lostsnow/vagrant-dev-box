@@ -156,7 +156,7 @@ run() {
     done
 
     if [ ${CMD} == "create" ] || [ ${CMD} == "upload" ] || [ ${CMD} == "release" ]; then
-        if [ -z "${TOKEN}" ]; then
+        if [ -z "${VAGRANT_CLOUD_TOKEN}" ]; then
             fatal "Vagrant cloud token required, Please set by environment variable: TOKEN."
         fi
 
@@ -184,7 +184,7 @@ run() {
 _create() {
     info "Create version "${BOX_VERSION}
     response=$(curl -s -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${TOKEN}" \
+        -H "Authorization: Bearer ${VAGRANT_CLOUD_TOKEN}" \
         ${API_URL}/${BOX_NAME}/versions \
         --data '{ "version": { "version": "'${BOX_VERSION}'" } }')
     check_error ${response}
@@ -192,7 +192,7 @@ _create() {
 
     info "Create provider "${BOX_PROVIDER}
     response=$(curl -s -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${TOKEN}" \
+        -H "Authorization: Bearer ${VAGRANT_CLOUD_TOKEN}" \
         ${API_URL}/${BOX_NAME}/version/${BOX_VERSION}/providers \
         --data '{ "provider": { "name": "'${BOX_PROVIDER}'" } }')
     check_error ${response}
@@ -228,7 +228,7 @@ _upload() {
     esac
 
     info "Get upload token"
-    response=$(curl -s -H "Authorization: Bearer ${TOKEN}" \
+    response=$(curl -s -H "Authorization: Bearer ${VAGRANT_CLOUD_TOKEN}" \
         ${API_URL}/${BOX_NAME}/version/${BOX_VERSION}/provider/${BOX_PROVIDER}/upload)
     check_error ${response}
     echo ${response}
@@ -247,7 +247,7 @@ _upload() {
 
 _release() {
     info "Release box"
-    response=$(curl -s -H "Authorization: Bearer ${TOKEN}" \
+    response=$(curl -s -H "Authorization: Bearer ${VAGRANT_CLOUD_TOKEN}" \
         ${API_URL}/${BOX_NAME}/version/${BOX_VERSION}/release -X PUT)
     check_error ${response}
     echo ${response}
