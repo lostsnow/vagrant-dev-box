@@ -8,6 +8,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "dev-box"
   config.vm.provider :virtualbox do |vb|
     vb.name = "dev-box"
+    vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
   end
 
   # Disable the new default behavior introduced in Vagrant 1.7, to
