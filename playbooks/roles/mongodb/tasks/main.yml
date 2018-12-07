@@ -3,14 +3,14 @@
   apt_key:
     keyserver: keyserver.ubuntu.com
     id: 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
-  state: present
+    state: present
 
 - name: Add MongoDB official APT repository
   apt_repository:
     repo: "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu {{ ansible_lsb.codename }}/mongodb-org/{{ mongodb_version }} multiverse"
     state: present
     filename: mongodb-org-{{ mongodb_version }}
-  update_cache: yes
+    update_cache: yes
 
 # By default, MongoDB would not be started and enabled after installation on
 # Ubuntu. So we don't need to stop MongoDB manually, but do need to manually

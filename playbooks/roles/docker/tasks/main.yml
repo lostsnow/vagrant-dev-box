@@ -1,11 +1,12 @@
 ---
 - name: Ensure Docker depdencies are installed
   apt:
-    name: "{{ item }}"
+    name: "{{ packages }}"
     state: present
-  with_items:
-    - apt-transport-https
-    - ca-certificates
+  vars:
+    packages:
+      - apt-transport-https
+      - ca-certificates
 
 - name: Add Docker apt key
   apt_key:

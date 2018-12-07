@@ -12,40 +12,44 @@
 
 - name: Install PHP
   apt:
-    name: "php{{ php_version }}"
+    name: "{{ packages }}"
     state: present
+  vars:
+    packages:
+      - php{{ php_version }}
+      - php{{ php_version }}-fpm
 
 - name: Install required php packages
   apt:
-    name: "{{ item }}"
+    name: "{{ packages }}"
     state: present
-  with_items:
-    - php{{ php_version }}-bcmath
-    - php{{ php_version }}-cli
-    - php{{ php_version }}-common
-    - php{{ php_version }}-curl
-    - php{{ php_version }}-dom
-    - php{{ php_version }}-fpm
-    - php{{ php_version }}-gd
-    - php{{ php_version }}-gmp
-    - php{{ php_version }}-intl
-    - php{{ php_version }}-json
-    - php{{ php_version }}-ldap
-    - php{{ php_version }}-mbstring
-    - php{{ php_version }}-memcached
-    - php{{ php_version }}-mysql
-    - php{{ php_version }}-opcache
-    - php{{ php_version }}-pgsql
-    - php{{ php_version }}-sqlite3
-    - php{{ php_version }}-xml
+  vars:
+    packages:
+      - php{{ php_version }}-bcmath
+      - php{{ php_version }}-cli
+      - php{{ php_version }}-common
+      - php{{ php_version }}-curl
+      - php{{ php_version }}-dom
+      - php{{ php_version }}-gd
+      - php{{ php_version }}-gmp
+      - php{{ php_version }}-intl
+      - php{{ php_version }}-json
+      - php{{ php_version }}-ldap
+      - php{{ php_version }}-mbstring
+      - php{{ php_version }}-memcached
+      - php{{ php_version }}-mongodb
+      - php{{ php_version }}-mysql
+      - php{{ php_version }}-opcache
+      - php{{ php_version }}-pgsql
+      - php{{ php_version }}-soap
+      - php{{ php_version }}-sqlite3
+      - php{{ php_version }}-xml
 
 - name: Install composer
   shell: curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/bin --filename=composer
-  state: present
 
 - name: Configure composer cache directory to avoid using slow NFS
   shell: composer config --global cache-dir /dev/shm/composer/cache
-  state: present
 
 - name: Download and install PHPUnit
   get_url:

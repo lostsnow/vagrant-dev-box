@@ -6,10 +6,11 @@
 
 - name: Install NodeJS
   apt:
-    name: "{{ item }}"
+    name: "{{ packages }}"
     state: present
-  with_items:
-    - nodejs
+  vars:
+    packages:
+      - nodejs
 
 - name: Add apt key for yarn
   apt_key:
@@ -29,7 +30,8 @@
 
 - name: Install yarn
   apt:
-    name: "{{ item }}"
+    name: "{{ packages }}"
     state: present
-  with_items:
+  vars:
+    packages:
     - yarn

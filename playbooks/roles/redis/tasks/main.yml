@@ -12,8 +12,9 @@
 
 - name: Install redis
   apt:
-    name: "{{ item }}"
+    name: "{{ packages }}"
     state: present
-  with_items:
-    - redis-server
-    - redis-tools
+  vars:
+    packages:
+      - redis-server
+      - redis-tools
