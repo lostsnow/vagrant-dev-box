@@ -59,7 +59,7 @@
 
 - name: Copy php-fpm pool config
   template:
-    src: www.conf
+    src: www.conf.j2
     dest: "/etc/php/{{ php_version }}/fpm/pool.d/www.conf"
   notify:
     - restart php-fpm
