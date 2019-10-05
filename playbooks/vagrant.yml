@@ -8,6 +8,9 @@
     www_group: www
     # 123456
     www_password: "$6$C075HPLTAvTU$DQ4CT8PL6sBT0NT.iU5VusBEW31TlTYr0os.BqZLhfbIG7BnqncEMl3Jp2.2smhL4J2VJ/Gk2CFkCHYAQbtAj/"
+    sudo:
+      users:
+        - www
     mysql_user: mysql
     mysql_group: mysql
     mysql_root_password: 123456

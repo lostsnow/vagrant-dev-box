@@ -1,0 +1,17 @@
+# sudo groups
+{% if "groups" in sudo %}
+{% for sudo_group in sudo.groups %}
+{% if sudo_group %}
+%{{ sudo_group }} ALL=(ALL:ALL) NOPASSWD:ALL
+{% endif %}
+{% endfor %}
+{% endif %}
+
+# sudo users
+{% if "users" in sudo %}
+{% for sudo_user in sudo.users %}
+{% if sudo_user %}
+{{ sudo_user }} ALL=(ALL:ALL) NOPASSWD:ALL
+{% endif %}
+{% endfor %}
+{% endif %}

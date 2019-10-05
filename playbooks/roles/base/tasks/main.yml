@@ -59,6 +59,13 @@
     line: "PasswordAuthentication yes"
   notify: restart sshd
 
+- name: Add sudoers
+  template:
+    src: sudoers.j2
+    dest: /etc/sudoers.d/sudoers
+    validate: 'visudo -cf %s'
+    mode: 0440
+
 - name: Editor version selected
   alternatives:
     name: editor
