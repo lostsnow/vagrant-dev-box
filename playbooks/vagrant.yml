@@ -6,6 +6,8 @@
     document_root: /opt/projects
     www_user: www
     www_group: www
+    # 123456
+    www_password: "$6$C075HPLTAvTU$DQ4CT8PL6sBT0NT.iU5VusBEW31TlTYr0os.BqZLhfbIG7BnqncEMl3Jp2.2smhL4J2VJ/Gk2CFkCHYAQbtAj/"
     mysql_user: mysql
     mysql_group: mysql
     mysql_root_password: 123456
@@ -16,7 +18,7 @@
     samba_user: www
     samba_group: www
     samba_password: 123456
-    mongodb_version: 3.6
+    mongodb_version: 4.2
     mongodb_db_path: /var/lib/mongodb
     mongodb_bind_ip: 127.0.0.1
   pre_tasks:
@@ -24,7 +26,7 @@
       apt:
         update_cache: yes
         cache_valid_time: 3600
-        upgrade: true
+        upgrade: yes
   roles:
     - base
     - nginx

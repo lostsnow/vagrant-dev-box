@@ -5,6 +5,7 @@
     state: present
   vars:
     packages:
+      - aptitude
       - curl
       - git
       - zip
@@ -22,7 +23,6 @@
       - mtr-tiny
       - python3
       - python3-pip
-      - python-software-properties
       - tmux
       - memcached
       - beanstalkd
@@ -37,6 +37,8 @@
     name: "{{ www_user }}"
     group: "{{ www_group }}"
     uid: 501
+    password: "{{ www_password }}"
+    shell: "/bin/bash"
 
 - name: Adding group {{ mysql_group }}
   group:
@@ -48,6 +50,7 @@
     name: "{{ mysql_user }}"
     group: "{{ mysql_group }}"
     uid: 502
+    shell: "/sbin/nologin"
 
 - name: Enable password login
   lineinfile:

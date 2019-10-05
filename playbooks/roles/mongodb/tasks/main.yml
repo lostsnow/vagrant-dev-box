@@ -2,7 +2,7 @@
 - name: Import MongoDB public GPG Key
   apt_key:
     keyserver: keyserver.ubuntu.com
-    id: 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+    id: E162F504A20CDF15827F718D4B7C549A058F8B6B
     state: present
 
 - name: Add MongoDB official APT repository
