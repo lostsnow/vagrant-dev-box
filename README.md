@@ -69,6 +69,6 @@ vagrant ssh
 ```
 
 [VirtualBox]: https://www.virtualbox.org/wiki/Downloads
-[Vagrant]: http://www.vagrantup.com/downloads
+[Vagrant]: https://www.vagrantup.com/downloads.html
 [vagrant.yml]: https://github.com/lostsnow/vagrant-dev-box/blob/master/playbooks/vagrant.yml
 [build/Vagrantfile]: https://github.com/lostsnow/vagrant-dev-box/blob/master/build/Vagrantfile
