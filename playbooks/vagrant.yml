@@ -15,7 +15,7 @@
     mysql_group: mysql
     mysql_root_password: 123456
     mysql_db_path: /var/lib/mysql
-    mysql_bind_ip: 127.0.0.1
+    mysql_bind_ip: 0.0.0.0
     gopath: "/opt/projects/golang"
     samba_www_root: "/opt/projects"
     samba_user: www
@@ -23,7 +23,7 @@
     samba_password: 123456
     mongodb_version: 4.2
     mongodb_db_path: /var/lib/mongodb
-    mongodb_bind_ip: 127.0.0.1
+    mongodb_bind_ip: 0.0.0.0
   pre_tasks:
     - name: update apt cache and upgrade apt packages
       apt:
