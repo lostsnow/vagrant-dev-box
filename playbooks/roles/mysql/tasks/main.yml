@@ -1,7 +1,18 @@
 ---
+- name: Import MySQL public GPG Key
+  apt_key:
+    url: https://repo.mysql.com/RPM-GPG-KEY-mysql
+    id: A4A9406876FCBD3C456770C88C718D3B5072E1F5
+    state: present
+
+- name: Add MySQL 8 repository
+  apt_repository:
+    repo: "deb https://repo.mysql.com/apt/ubuntu {{ ansible_lsb.codename }} mysql-8.0"
+    state: present
+
 - name: Install MySQL
   apt:
-    name: mysql-server
+    name: mysql-community-server
     state: present
 
 - name: Copy mysql config
