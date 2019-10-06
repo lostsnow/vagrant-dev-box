@@ -2,6 +2,8 @@
 Vagrant.require_version ">= 1.7.0"
 
 Vagrant.configure(2) do |config|
+  config.vm.boot_timeout = 600
+
   config.vm.box = "ubuntu/bionic64"
 
   config.vm.hostname = "dev-box"
