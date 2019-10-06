@@ -5,12 +5,12 @@ Packages
 --------
 
 * Nginx
-* MySQL 5.7
+* MySQL 8.0
 * Redis
 * MongoDB
 * memcached
 * beanstalkd
-* PHP 7.2 with composer
+* PHP 7.3 with composer
 * Golang
 * NodeJS 9.x with yarn
 * Docker with docker-compose
