@@ -62,19 +62,19 @@ cecho () {
     local MSG=$1
     local COLOR=$2
     local PREFIX=
-    local SUFFIX="\e[0m"
+    local SUFFIX="\033[0m"
     case "$COLOR" in
         red)
-            PREFIX="\e[0;31m"
+            PREFIX="\033[0;31m"
             ;;
         green)
-            PREFIX="\e[0;32m"
+            PREFIX="\033[0;32m"
             ;;
         brown)
-            PREFIX="\e[0;33m"
+            PREFIX="\033[0;33m"
             ;;
         purple)
-            PREFIX="\e[0;35m"
+            PREFIX="\033[0;35m"
             ;;
         *)
             PREFIX=""
