@@ -1,20 +1,25 @@
 Vagrant develop box
 ===================
 
+System
+------
+
+Ubuntu 18.04
+
 Packages
 --------
 
-* Nginx
-* MySQL 8.0
-* Redis
-* MongoDB
-* memcached
-* beanstalkd
-* PHP 7.3 with composer
-* Golang
-* NodeJS 9.x with yarn
-* Docker with docker-compose
-* Samba server
+* [Nginx][Nginx]
+* [MySQL][MySQL] 8.0
+* [Redis][Redis]
+* [MongoDB][MongoDB]
+* [memcached][memcached]
+* [beanstalkd][beanstalkd]
+* [PHP][PHP] 7.3 with [composer][composer]
+* [Golang][Golang]
+* [NodeJS][NodeJS] 9.x with [yarn][yarn]
+* [Docker][Docker] with [docker-compose][docker-compose]
+* [Samba server][Samba server]
 
 Requirements
 ------------
@@ -72,3 +77,17 @@ vagrant ssh
 [Vagrant]: https://www.vagrantup.com/downloads.html
 [vagrant.yml]: https://github.com/lostsnow/vagrant-dev-box/blob/master/playbooks/vagrant.yml
 [build/Vagrantfile]: https://github.com/lostsnow/vagrant-dev-box/blob/master/build/Vagrantfile
+[Nginx]: https://nginx.org/en/download.html
+[MySQL]: https://dev.mysql.com/downloads/
+[Redis]: https://redis.io/download
+[MongoDB]: https://www.mongodb.com/download-center/community
+[memcached]: https://memcached.org/downloads
+[beanstalkd]: https://beanstalkd.github.io/download.html
+[PHP]: https://www.php.net/downloads.php
+[composer]: https://getcomposer.org/download/
+[Golang]: https://golang.org/dl/
+[NodeJS]: https://nodejs.org/en/download/
+[yarn]: https://yarnpkg.com/en/docs/install
+[Docker]: https://docs.docker.com/install/
+[docker-compose]: https://docs.docker.com/compose/install/
+[Samba server]: https://www.samba.org/samba/download/
