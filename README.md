@@ -75,8 +75,8 @@ vagrant ssh
 
 [VirtualBox]: https://www.virtualbox.org/wiki/Downloads
 [Vagrant]: https://www.vagrantup.com/downloads.html
-[vagrant.yml]: https://github.com/lostsnow/vagrant-dev-box/blob/master/playbooks/vagrant.yml
-[build/Vagrantfile]: https://github.com/lostsnow/vagrant-dev-box/blob/master/build/Vagrantfile
+[vagrant.yml]: playbooks/vagrant.yml
+[build/Vagrantfile]: build/Vagrantfile
 [Nginx]: https://nginx.org/en/download.html
 [MySQL]: https://dev.mysql.com/downloads/
 [Redis]: https://redis.io/download
