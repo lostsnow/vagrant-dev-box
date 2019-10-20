@@ -15,7 +15,7 @@
     name: mysql-community-server
     state: present
 
-- name: Copy mysql config
+- name: Copy MySQL config
   template:
     src: mysqld.cnf.j2
     dest: /etc/mysql/mysql.conf.d/mysqld.cnf
@@ -30,17 +30,21 @@
     packages:
       - python-mysqldb
 
-- name: Update mysql root password for all root accounts
+- name: Check if root password is set
+  command: "mysql -u root -p'{{ mysql_root_password }}' -e 'SELECT 1'"
+  ignore_errors: yes
+  register: mysql_root_password_check
+
+# @TODO: root@localhost `auth_socket` plugin. @see https://github.com/ansible/ansible/pull/44267
+- name: Set MySQL root password
   mysql_user:
-    login_user: root
-    login_password: "{{ mysql_root_password | quote }}"
     name: root
     host: "{{ item }}"
     password: "{{ mysql_root_password | quote }}"
     priv: "*.*:ALL,GRANT"
-    update_password: on_create
     state: present
   with_items:
     - 127.0.0.1
     - ::1
     - localhost
+  when: mysql_root_password_check.rc == 1

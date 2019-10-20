@@ -34,7 +34,6 @@ datadir                        = {{ mysql_db_path }}
 # BINARY LOGGING #
 server-id                      = 10001
 log-bin                        = {{ mysql_db_path }}/mysql-bin.log
-expire-logs-days               = 10
 sync-binlog                    = 1
 binlog-format                  = ROW
 #expire-logs-days              = 10
