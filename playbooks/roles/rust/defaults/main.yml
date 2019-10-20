@@ -1,0 +1,3 @@
+---
+rust_addtl_system_packages: []
+rust_dev_include_musl: true

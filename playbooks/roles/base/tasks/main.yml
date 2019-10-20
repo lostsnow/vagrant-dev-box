@@ -6,26 +6,29 @@
   vars:
     packages:
       - aptitude
+      - beanstalkd
       - curl
+      - gcc
       - git
-      - zip
-      - unzip
-      - wget
-      - lrzsz
-      - vim
-      - telnet
-      - whois
-      - lsof
-      - sysstat
       - iptraf
       - iftop
       - iotop
+      - lrzsz
+      - lsof
+      - memcached
       - mtr-tiny
+      - openssh-client
       - python3
       - python3-pip
+      - rsync
+      - sysstat
+      - telnet
       - tmux
-      - memcached
-      - beanstalkd
+      - unzip
+      - vim
+      - wget
+      - whois
+      - zip
 
 - name: Adding group {{ www_group }}
   group:

@@ -17,6 +17,7 @@ Packages
 * [beanstalkd][beanstalkd]
 * [PHP][PHP] 7.3 with [composer][composer]
 * [Golang][Golang]
+* [Rust][Rust]
 * [NodeJS][NodeJS] 9.x with [yarn][yarn]
 * [Docker][Docker] with [docker-compose][docker-compose]
 * [Samba server][Samba server]
@@ -86,6 +87,7 @@ vagrant ssh
 [PHP]: https://www.php.net/downloads.php
 [composer]: https://getcomposer.org/download/
 [Golang]: https://golang.org/dl/
+[Rust]: https://www.rust-lang.org/tools/install
 [NodeJS]: https://nodejs.org/en/download/
 [yarn]: https://yarnpkg.com/en/docs/install
 [Docker]: https://docs.docker.com/install/

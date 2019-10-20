@@ -24,6 +24,7 @@
     mongodb_version: 4.2
     mongodb_db_path: /var/lib/mongodb
     mongodb_bind_ip: 0.0.0.0
+    rust_user: www
   pre_tasks:
     - name: update apt cache and upgrade apt packages
       apt:
@@ -41,3 +42,4 @@
     - samba
     - mongodb
     - docker
+    - rust
