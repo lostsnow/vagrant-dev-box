@@ -12,6 +12,7 @@ Vagrant.configure(2) do |config|
     vb.name = "dev-box"
     vb.memory = 2048
     vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
+    vb.customize [ "modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 
   # Disable the new default behavior introduced in Vagrant 1.7, to
