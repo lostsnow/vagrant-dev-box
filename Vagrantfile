@@ -2,16 +2,16 @@
 Vagrant.require_version ">= 1.7.0"
 
 Vagrant.configure(2) do |config|
-  config.vm.boot_timeout = 600
+  config.vm.boot_timeout = 1200
 
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = "ubuntu/focal64"
 
   config.vm.hostname = "dev-box"
   config.vm.define "dev-box"
   config.vm.provider :virtualbox do |vb|
     vb.name = "dev-box"
     vb.memory = 2048
-    vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
+    vb.customize [ "modifyvm", :id, "--uartmode1", "file", File::NULL ]
     vb.customize [ "modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 
@@ -21,6 +21,7 @@ Vagrant.configure(2) do |config|
   config.ssh.insert_key = false
 
   # Run Ansible from the Vagrant VM
+  config.vm.provision :shell, inline: "apt-get update && apt-get install -qy ansible"
   config.vm.provision "ansible_local" do |ansible|
     ansible.verbose = "vv"
     ansible.playbook = "playbooks/vagrant.yml"

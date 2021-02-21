@@ -3,7 +3,7 @@
   become: true
   vars:
     timezone: Asia/Shanghai
-    document_root: /opt/projects
+    document_root: /home/www/projects
     www_user: www
     www_group: www
     # 123456
@@ -13,23 +13,26 @@
         - www
     mysql_user: mysql
     mysql_group: mysql
-    mysql_root_password: 123456
+    mysql_root_password: "123456"
     mysql_db_path: /var/lib/mysql
-    mysql_bind_ip: 0.0.0.0
-    gopath: "/opt/projects/golang"
-    samba_www_root: "/opt/projects"
+    mysql_bind_ip: "0.0.0.0"
+    gopath: "/home/www/projects/golang"
+    samba_www_root: "/home/www"
     samba_user: www
     samba_group: www
-    samba_password: 123456
-    mongodb_version: 4.2
+    samba_password: "123456"
+    mongodb_version: "4.4"
     mongodb_db_path: /var/lib/mongodb
-    mongodb_bind_ip: 0.0.0.0
-    rust_user: www
+    mongodb_bind_ip: "0.0.0.0"
+    # http://repo.mongodb.org
+    mongodb_mirror: "https://mirrors.tuna.tsinghua.edu.cn/mongodb"
+    # https://download.docker.com
+    docker_mirror: "https://mirrors.tuna.tsinghua.edu.cn/docker-ce"
   pre_tasks:
     - name: update apt cache and upgrade apt packages
       apt:
         update_cache: yes
-        cache_valid_time: 3600
+        cache_valid_time: 7200
         upgrade: yes
   roles:
     - base
@@ -42,4 +45,3 @@
     - samba
     - mongodb
     - docker
-    - rust

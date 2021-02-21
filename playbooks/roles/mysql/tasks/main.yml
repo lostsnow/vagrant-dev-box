@@ -28,7 +28,7 @@
     state: present
   vars:
     packages:
-      - python-mysqldb
+      - python3-mysqldb
 
 - name: Check if root password is set
   command: "mysql -u root -p'{{ mysql_root_password }}' -e 'SELECT 1'"
@@ -44,7 +44,7 @@
     priv: "*.*:ALL,GRANT"
     state: present
   with_items:
-    - 127.0.0.1
-    - ::1
-    - localhost
+    - "127.0.0.1"
+    - "::1"
+    - "localhost"
   when: mysql_root_password_check.rc == 1
