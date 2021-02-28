@@ -1,7 +1,7 @@
 # Optimized for Vagrant 1.7 and above.
 Vagrant.require_version ">= 1.7.0"
 
-required_plugins = %w( vagrant-disksize vagrant-winnfsd )
+required_plugins = %w( vagrant-disksize vagrant-winnfsd vagrant-bindfs )
 _retry = false
 required_plugins.each do |plugin|
   unless Vagrant.has_plugin? plugin
