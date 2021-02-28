@@ -24,6 +24,9 @@ Vagrant.configure(2) do |config|
   config.vm.provider :virtualbox do |vb|
     vb.name = "dev-box"
     #vb.memory = 2048
+    vb.customize [ "modifyvm", :id, "--cpus", 2 ]
+    vb.customize [ "modifyvm", :id, "--uartmode1", "file", File::NULL ]
+    vb.customize [ "modifyvm", :id, "--natdnshostresolver2", "on"]
   end
 
   #config.disksize.size = "40GB"
@@ -36,10 +39,19 @@ Vagrant.configure(2) do |config|
   #config.winnfsd.uid = 501
   #config.winnfsd.gid = 501
 
-  config.vm.synced_folder "../src", "/home/www/projects",
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder "../src", "/mnt/projects",
     type: "nfs",
     mount_options: ['rw,vers=3,udp,nolock,actimeo=2']
     #mount_options: ['rw,async,fsc,nolock,vers=3,udp,rsize=32768,wsize=32768,hard,noatime,actimeo=2']
+  
+  config.bindfs.default_options = {
+    force_user: 'www',
+    force_group: 'www',
+    create_as_user: true,
+    perms: 'u=rwX:g=rD:o=rD'
+  }
+  config.bindfs.bind_folder "/mnt/projects",  "/home/www/projects"
 
   config.vm.network "private_network", ip: "172.22.22.11"
 end
